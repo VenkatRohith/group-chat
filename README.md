@@ -1,6 +1,6 @@
-# Group-Chat
+# Group Chat
 
-Simple project for learning MERN stack with JWT authentication
+Simple application which provides web services to facilitate group chat and manage data
 
 ## Tech Stack
 
@@ -26,14 +26,34 @@ Simple project for learning MERN stack with JWT authentication
 ## Project setup
 
 - Prerequisite - Should have **mongodb community server** and **node installed**
-- Clone or Download the zip from github and open in **VSCode**
+- Clone the branch or Download the zip from github and open in **VSCode**
 - There will be two folders frontend & backend
 - For backend server
   - Add a new terminal or split terminal
   - Change current directory to **backend** (`cd .\backend\` or `cd backend`)
   - Please ensure `mongod` service is up and running
+  - create a file and name it **.env**. Add the below env variables
+
+    ```text
+      # any port which is not occupied
+      PORT=4000
+
+      # MongoDB Coneection String
+      DB_CONN_STRING=mongodb://127.0.0.1:27017
+
+      # Database name where all the documents are stored
+      DB_NAME=group-chat
+
+      # Frontend server URL for cors policy
+      CLIENT_INSTANCE_URL=http://localhost:3000
+
+      # To generate a JWT token (recommend generating some strong long
+      # password using a generator and assign it here)
+      SECRET=
+    ```
+
   - `npm i` - installing dependant modules
-  - `npm run dev` - starting the backend server
+  - `npm start` - starting the backend server
 - For frontend server
   - Change current directory to **frontend** (`cd .\frontend\` or `cd frontend`)
   - `npm i` - installing dependant modules
