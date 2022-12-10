@@ -1,4 +1,4 @@
-# Group-Chat
+# Group Chat
 
 Simple application which provides web services to facilitate group chat and manage data
 
@@ -26,7 +26,7 @@ Simple application which provides web services to facilitate group chat and mana
 ## Project setup
 
 - Prerequisite - Should have **mongodb community server** and **node installed**
-- Clone or Download the zip from github and open in **VSCode**
+- Clone the branch or Download the zip from github and open in **VSCode**
 - There will be two folders frontend & backend
 - For backend server
   - Add a new terminal or split terminal
