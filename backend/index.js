@@ -7,7 +7,7 @@ const {
   port,
   db_conn_string,
   db_name,
-} = require("../env-variables");
+} = require("./env-variables");
 
 const app = express();
 
