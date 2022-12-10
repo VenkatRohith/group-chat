@@ -1,4 +1,4 @@
-# Group-Chat
+# Group Chat
 
 Simple application which provides web services to facilitate group chat and manage data
 
