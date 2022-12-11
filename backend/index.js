@@ -8,6 +8,7 @@ const {
   db_conn_string,
   db_name,
 } = require("./env-variables");
+const logger = require("./middleware/logger");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(logger);
 
 // Hearbeat api
 app.get("/api/heartbeat", (_, res) => {
