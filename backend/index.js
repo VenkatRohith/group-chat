@@ -9,6 +9,10 @@ const {
   db_name,
 } = require("./env-variables");
 const logger = require("./middleware/logger");
+const userRoutes = require("./routes/user");
+const userLoginRoutes = require("./routes/userLogin");
+const groupRoutes = require("./routes/group");
+const messageRoutes = require("./routes/message");
 
 const app = express();
 
@@ -26,6 +30,12 @@ app.use(logger);
 app.get("/api/heartbeat", (_, res) => {
   res.status(200).json("Yaah🤩, Server is up🌟⬆️");
 });
+
+//routes
+app.use("/api/userLogin", userLoginRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/groups", groupRoutes);
+app.use("/api/messages", messageRoutes);
 
 //connect to DB
 mongoose.set("strictQuery", true);
