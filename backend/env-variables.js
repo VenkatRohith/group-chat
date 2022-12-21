@@ -4,4 +4,5 @@ module.exports = {
   db_name: process.env.DB_NAME,
   secret: process.env.SECRET,
   client_instance_url: process.env.CLIENT_INSTANCE_URL,
+  token_expiry_in_hours: process.env.TOKEN_EXPIRY_IN_HOURS,
 };
