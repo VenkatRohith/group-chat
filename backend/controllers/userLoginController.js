@@ -6,9 +6,7 @@ const login = async (req, res) => {
     const token = await UserCredential.login(phoneNumber, password);
     res.status(200).json({ message: "User logged in successfully", token });
   } catch (error) {
-    res
-      .status(400)
-      .json({ error: "Some error occured, please contact to support team" });
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -27,9 +25,7 @@ const logout = async (req, res) => {
     await UserCredential.logout(phoneNumber, token);
     res.status(200).json({ message: "User logged out successfully" });
   } catch (error) {
-    res
-      .status(400)
-      .json({ error: "Some error occured, please contact to support team" });
+    res.status(400).json({ error: error.message });
   }
 };
 

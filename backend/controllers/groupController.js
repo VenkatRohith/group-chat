@@ -82,6 +82,11 @@ const addUserToGroup = async (req, res) => {
     }
 
     const group = await Group.findById({ _id: groupId });
+
+    if (group.members.find((member) => member === userId)) {
+      return res.status(400).json({ error: "User already present in group" });
+    }
+
     await Group.findByIdAndUpdate(
       { _id: groupId },
       { members: [...group.members, userId] }
