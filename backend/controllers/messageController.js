@@ -1,4 +1,5 @@
 const Message = require("../models/messageModel");
+const Group = require("../models/groupModel");
 
 const sendMessage = async (req, res) => {
   try {
@@ -7,6 +8,20 @@ const sendMessage = async (req, res) => {
 
     if (!groupId || groupId.trim() === "") {
       return res.status(400).json({ error: "Failed to send message" });
+    }
+
+    const groupPresent = await Group.findById({ _id: groupId });
+    if (!groupPresent) {
+      return res.status(400).json({ error: "No such group" });
+    }
+
+    if (
+      groupPresent &&
+      !groupPresent.members.find((member) => member === userId)
+    ) {
+      return res
+        .status(400)
+        .json({ error: "User doesn't belong to the group" });
     }
 
     if (!messageDesc) {
