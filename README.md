@@ -4,9 +4,8 @@ Simple application which provides web services to facilitate group chat and mana
 
 ## Tech Stack
 
-- Frontend - **R**eact, Redux, CSS
-- Backend - **E**xpress, **N**odeJS
-- Database - **M**ongoDB
+- Backend - Express, NodeJS
+- Database - MongoDB
 
 ## Project Details
 
@@ -50,6 +49,9 @@ Simple application which provides web services to facilitate group chat and mana
       # To generate a JWT token (recommend generating some strong long
       # password using a generator and assign it here)
       SECRET=
+
+      # Token expiry in hours
+      TOKEN_EXPIRY_IN_HOURS=1
     ```
 
   - `npm i` - installing dependant modules
@@ -58,3 +60,7 @@ Simple application which provides web services to facilitate group chat and mana
   - Change current directory to **frontend** (`cd .\frontend\` or `cd frontend`)
   - `npm i` - installing dependant modules
   - `npm start` - starting the frontend server
+- For functional testing
+  - prerequisite is to have **python3**
+  - Once python3 is installed, need to install requests & pytest library if not installed
+  - `pip3 install -U requests pytest pytest-html`
