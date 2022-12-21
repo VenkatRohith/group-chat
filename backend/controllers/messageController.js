@@ -48,7 +48,7 @@ const likeMessage = async (req, res) => {
     if (!liked) {
       return res.status(400).json({ error: "Failed to like message" });
     }
-    res.status(201);
+    res.status(201).json();
   } catch (error) {
     res.status(400).json({ error: "Failed to like message" });
   }
