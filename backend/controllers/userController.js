@@ -8,9 +8,7 @@ const createUser = async (req, res) => {
 
     res.status(200).json({ firstName: user.firstName });
   } catch (error) {
-    res
-      .status(400)
-      .json({ error: "Some error occured, please contact to support team" });
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -33,9 +31,12 @@ const editUser = async (req, res) => {
     }
 
     if (req.body?.phoneNumber) {
-      await UserCredential.findOneAndUpdate({
-        phoneNumber: updatedUser.phoneNumber,
-      });
+      await UserCredential.findOneAndUpdate(
+        { userId },
+        {
+          phoneNumber: updatedUser.phoneNumber,
+        }
+      );
     }
 
     res.status(200).json(updatedUser);

@@ -2,19 +2,18 @@ const User = require("../models/userModel");
 
 const isUserAdmin = async (req, res, next) => {
   try {
-    const { phoneNumber = "" } = req.currentLoggedUser || {};
-    if (!phoneNumber) {
+    const { userId = "" } = req.currentLoggedUser || {};
+    if (!userId) {
       throw Error();
     }
-    const user = await User.findOne({ phoneNumber });
+    const user = await User.findById({ _id: userId });
     if (!user.isAdmin) {
       return res.status(403).json({
-        error: "User doesn't permission to create or edit other user",
+        error: "Current User doesn't have permission to create or edit user",
       });
     }
     next();
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: "Some error occured" });
   }
 };
