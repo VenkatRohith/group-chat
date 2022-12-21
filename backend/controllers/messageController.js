@@ -39,6 +39,10 @@ const likeMessage = async (req, res) => {
     if (!message) {
       return res.status(400).json({ error: "Failed to like message" });
     }
+    if (message.likedBy.find((likedUser) => likedUser === userId)) {
+      return res.status(400).json({ error: "Message already liked by user" });
+    }
+
     const liked = await Message.findByIdAndUpdate(
       { _id: messageId },
       {
