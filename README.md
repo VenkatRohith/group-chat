@@ -64,3 +64,5 @@ Simple application which provides web services to facilitate group chat and mana
   - prerequisite is to have **python3**
   - Once python3 is installed, need to install requests & pytest library if not installed
   - `pip3 install -U requests pytest pytest-html`
+  - In order to run the tests `pytest`
+  - In order to generate report `pytest --html=report.html --self-contained-html`
